@@ -1,38 +1,50 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Loader2, ChefHat } from "lucide-react"
-import { generateMealPrepPlan } from "../app/actions"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Loader2, ChefHat } from "lucide-react";
+import { generateMealPrepPlan } from "../app/actions";
+import MealPrepInstructions from "./MealPrepInstructions.js";
 
 export function MealPrep({ recipes, scheduledDays }) {
-  const [mealPlan, setMealPlan] = useState("")
-  const [isGenerating, setIsGenerating] = useState(false)
+  const [mealPlan, setMealPlan] = useState("");
+  const [isGenerating, setIsGenerating] = useState(false);
+
+  // console.log(mealPlan);
+  // const { sundayPrepList } = JSON.parse(mealPlan);
+  // console.log(sundayPrepList);
 
   const generatePlan = async () => {
-    setIsGenerating(true)
+    setIsGenerating(true);
     try {
-      const result = await generateMealPrepPlan(recipes, scheduledDays)
+      const result = await generateMealPrepPlan(recipes, scheduledDays);
       if (result.success) {
-        setMealPlan(result.plan)
+        setMealPlan(result.plan);
       } else {
-        setMealPlan(`Error generating meal plan: ${result.error}`)
+        setMealPlan(`Error generating meal plan: ${result.error}`);
       }
     } catch (error) {
-      setMealPlan(`Error: ${error.message}`)
+      setMealPlan(`Error: ${error.message}`);
     }
-    setIsGenerating(false)
-  }
+    setIsGenerating(false);
+  };
 
-  const hasScheduledMeals = scheduledDays.length > 0 && recipes.length > 0
+  const hasScheduledMeals = scheduledDays.length > 0 && recipes.length > 0;
 
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Meal Prep Planner</h2>
-        <Button onClick={generatePlan} disabled={!hasScheduledMeals || isGenerating}>
-          {isGenerating ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <ChefHat className="w-4 h-4 mr-2" />}
+        <Button
+          onClick={generatePlan}
+          disabled={!hasScheduledMeals || isGenerating}
+        >
+          {isGenerating ? (
+            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+          ) : (
+            <ChefHat className="w-4 h-4 mr-2" />
+          )}
           Generate Meal Prep Plan
         </Button>
       </div>
@@ -43,12 +55,13 @@ export function MealPrep({ recipes, scheduledDays }) {
             <ChefHat className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
             <h3 className="text-lg font-semibold mb-2">Ready to meal prep?</h3>
             <p className="text-muted-foreground mb-4">
-              Add some recipes and schedule them on your calendar first, then come back here to generate your
-              personalized meal prep plan!
+              Add some recipes and schedule them on your calendar first, then
+              come back here to generate your personalized meal prep plan!
             </p>
             <div className="text-sm text-muted-foreground">
               <p>
-                You have {recipes.length} recipes and {scheduledDays.length} scheduled days
+                You have {recipes.length} recipes and {scheduledDays.length}{" "}
+                scheduled days
               </p>
             </div>
           </CardContent>
@@ -65,8 +78,12 @@ export function MealPrep({ recipes, scheduledDays }) {
               <div className="space-y-2">
                 {scheduledDays.map((day, index) => (
                   <div key={index} className="border-l-2 border-primary pl-3">
-                    <div className="font-semibold">{new Date(day.date).toLocaleDateString()}</div>
-                    <div className="text-sm text-muted-foreground">{day.recipes.join(", ")}</div>
+                    <div className="font-semibold">
+                      {new Date(day.date).toLocaleDateString()}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {day.recipes.join(", ")}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -82,7 +99,12 @@ export function MealPrep({ recipes, scheduledDays }) {
                 {recipes.map((recipe) => (
                   <div key={recipe.id} className="text-sm">
                     <span className="font-medium">{recipe.name}</span>
-                    {recipe.description && <span className="text-muted-foreground"> - {recipe.description}</span>}
+                    {recipe.description && (
+                      <span className="text-muted-foreground">
+                        {" "}
+                        - {recipe.description}
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>
@@ -97,10 +119,19 @@ export function MealPrep({ recipes, scheduledDays }) {
             <CardTitle>Your AI-Generated Meal Prep Plan</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="whitespace-pre-wrap text-sm">{mealPlan}</div>
+            {/* <div className="whitespace-pre-wrap text-sm">{mealPlan}</div> */}
+            {/* Section Plan
+            - Shopping List (we generate & combine)
+            - Sunday Prep Instructions
+            - Cooking Day Instructions
+              - {Array of dates to cook for} 
+                -> []Date 
+                  - []Recipe & Cooking Instructions
+            */}
+            <MealPrepInstructions mealPlan={mealPlan}></MealPrepInstructions>
           </CardContent>
         </Card>
       )}
     </div>
-  )
+  );
 }
