@@ -28,6 +28,26 @@ export default function RecipeManager() {
         Cilantro leaves (optional), for garnish`,
       instructions:
         "In a large Dutch oven or other large heavy pot with a tight- fitting lid, combine the rice, coconut milk and 2 cups of water; season with 1 teaspoon salt.Bring to a boil, covered, over high. Meanwhile, in a medium bowl, combine the scallions with the miso, soy sauce, olive oil, turmeric and a few grinds of pepper to form a chunky paste. Add the salmon; toss to coat., When the rice starts to boil, reduce the heat to medium-low, adjusting it as needed to maintain a simmer. Stir to make sure nothing is sticking on the bottom. Layer the spinach on top of the rice. Squeeze 2 lime quarters over the spinach. Nestle the salmon pieces on top in an even layer, scraping in any scallions remaining in the bowl. Cover and cook until the salmon is just cooked through, breaking apart the thickest piece to check, 12 to 16 minutes. Squeeze the remaining lime quarters over the salmon. Top with cilantro, if using. Scoop into bowls or plates to serve."
+    },
+    {
+      id: 2,
+      name: "Slow Cooker Tajín Chicken and Peppers",
+      ingredients: `
+        1½ to 2pounds boneless, skinless chicken thighs
+        2(15-ounce) cans pinto beans, rinsed
+        3(4-ounce) cans hot or mild chopped green chiles (not drained)
+        1bell pepper, sliced into ¼-inch wide strips
+        4garlic cloves, minced
+        2tablespoons Tajín seasoning, plus more for serving
+        2tablespoons canola oil
+        1teaspoon onion powder
+        ½teaspoon ground cumin
+        Kosher salt (such as Diamond Crystal)
+        Crumbled queso fresco, for serving
+        Rice, tortillas or tortilla chips, for serving
+      `,
+      instructions:
+        "Combine the chicken, beans, green chiles, bell pepper, garlic, Tajín, oil, onion powder and cumin in a 6- to 8-quart slow cooker.Season with 1½ teaspoons salt.Cook on low until the chicken is tender and the pepper is soft, 4 hours. Break the chicken into large chunks using two forks.Serve topped with queso fresco and more Tajin to taste."
     }
   ])
 
