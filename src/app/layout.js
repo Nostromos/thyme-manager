@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Recipes",
-  description: "Alice, Jahvon, and Mike",
+  title: "Thyme Manager",
+  description: "It's about thyme you organized those recipes! A modern recipe management and meal planning app.",
 };
 
 export default function RootLayout({ children }) {

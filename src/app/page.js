@@ -57,7 +57,7 @@ export default function RecipeManager() {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto p-4">
         <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold mb-2">Simple Recipe Manager</h1>
+          <h1 className="text-4xl font-bold mb-2">Thyme Manager</h1>
           <p className="text-muted-foreground">Organize your recipes, plan your meals, and prep like a pro</p>
         </div>
 

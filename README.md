@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <img src="./public/thyme-manager-header.svg" alt="Thyme Manager header" />
+</p>
+<h1 align="center"><i>Thyme Manager</i></h1>
 
-## Getting Started
+<p align="center">
+  <a href="https://nextjs.org"><img alt="Next.js" src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" /></a>
+  <a href="https://react.dev"><img alt="React" src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" /></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" /></a>
+  <a href="https://tailwindcss.com"><img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" /></a>
+  <a href="https://openai.com"><img alt="OpenAI" src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" /></a>
+</p>
 
-First, run the development server:
+## Overview
 
+A modern recipe management application that helps you organize your recipes, plan your weekly meals, and generate AI-powered meal prep plans. Built with Next.js 15 and React 19, it provides an intuitive interface for managing your culinary journey.
+
+## Features
+
+- **Recipe Management**: Store and organize all your favorite recipes in one place
+- **Calendar Planning**: Schedule recipes for specific days to plan your weekly meals
+- **AI Meal Prep**: Generate personalized meal prep plans using OpenAI integration
+- **Shopping Lists**: Automatically generate shopping lists from your scheduled meals
+- **Modern UI**: Clean, responsive interface built with Radix UI and Tailwind CSS
+
+## Tech Stack
+
+- **Next.js 15** - React framework with App Router
+- **React 19** - Latest React features
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **Radix UI** - Accessible component library
+- **OpenAI API** - AI-powered meal prep planning
+- **Lucide Icons** - Beautiful icon library
+- **Zod** - Schema validation
+
+## Requirements
+
+- Node.js 18.0.0 or higher
+- OpenAI API key (for meal prep generation)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone [repository-url]
+cd recipes
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up environment variables:
+```bash
+cp .env.example .env.local
+# Add your OpenAI API key to .env.local
+```
+
+4. Run the development server:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Adding Recipes
 
-## Learn More
+Navigate to the Recipes tab to add new recipes with ingredients and instructions.
 
-To learn more about Next.js, take a look at the following resources:
+### Planning Meals
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Use the Calendar tab to schedule recipes for specific days of the week.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Generating Meal Prep Plans
 
-## Deploy on Vercel
+Once you have recipes scheduled, go to the Meal Prep tab to generate an AI-powered prep plan that includes:
+- Combined shopping list
+- Sunday prep instructions
+- Daily cooking instructions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+recipes/
+├── src/
+│   ├── app/              # Next.js app directory
+│   │   ├── actions.js    # Server actions
+│   │   ├── layout.js     # Root layout
+│   │   └── page.js       # Main page
+│   ├── components/       # React components
+│   │   ├── CalendarView.js
+│   │   ├── MealPrep.js
+│   │   ├── RecipesList.js
+│   │   └── ui/          # UI components
+│   └── lib/             # Utility functions
+├── public/              # Static assets
+├── package.json
+└── README.md
+```
+
+## Development
+
+Run the development server:
+```bash
+npm run dev
+```
+
+Build for production:
+```bash
+npm run build
+```
+
+Start production server:
+```bash
+npm start
+```
+
+Run linting:
+```bash
+npm run lint
+```
+
+## Environment Variables
+
+Create a `.env.local` file with:
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+## Contributing
+
+Feel free to submit issues and pull requests to improve the application.
+
+## Notes
+
+- The application uses Next.js 15 with the App Router
+- All components use React 19 features
+- Tailwind CSS 4 is configured for styling
+- OpenAI integration requires a valid API key
+
+## License
+
+MIT - See [LICENSE](./LICENSE) for details
+
+## Authors
+
+[Alice Li](mailto:yunjiaaliceli@gmail.com)
+[Jahvon Dockery](mailto:jahvondockery@gmail.com)
+[Michael Monaghan](mailto:michael@monaghan.nyc)
